@@ -2,9 +2,9 @@ openapi: 3.1.0
 info:
   title: JSA from Photos API
   version: "1.0.0"
-  description: Actions for a Job Safety Analysis agent: analyze site photos and render a JSA PDF.
+  description: Actions for a Job Safety Analysis app: analyze site photos and render a JSA PDF.
 servers:
-  - url: https://YOUR_RENDER_URL/api
+  - url: https://YOUR_DEPLOYED_DOMAIN/api
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -25,13 +25,13 @@ components:
           properties:
             task: { type: string }
             location: { type: string }
-            environment: { type: string }
+            environment: { type: string, description: "indoor/outdoor/weather" }
             equipment: { type: array, items: { type: string } }
     HazardItem:
       type: object
       required: [category, specific_risk, recommended_controls, required_PPE]
       properties:
-        category: { type: string }
+        category: { type: string, description: "e.g., Fall, Electrical, Struck-by" }
         specific_risk: { type: string }
         likelihood: { type: string, enum: [low, medium, high] }
         potential_severity: { type: string, enum: [low, medium, high] }
