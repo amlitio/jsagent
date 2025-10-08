@@ -3,6 +3,8 @@ import { RenderJsaRequest } from '../lib/schemas.js';
 import { requireApiKey, rateLimit } from '../lib/security.js';
 import { buildJsaPdfBuffer } from '../lib/pdf.js';
 import { savePdfAndGetUrl } from '../src/storage/index.js'; // <-- this path matters
+import { buildJsaPdfBuffer } from '../lib/pdf.js';
+
 
 const router = Router();
 
