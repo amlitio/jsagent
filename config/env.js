@@ -12,13 +12,8 @@ export function getEnv() {
     OPENAI_API_KEY = ''
   } = process.env;
 
-  const allow = API_KEY_ALLOWLIST.split(',')
-    .map(s => s.trim())
-    .filter(Boolean);
-
-  const base =
-    APP_BASE_URL ||
-    `http://localhost:${PORT}`;
+  const allow = API_KEY_ALLOWLIST.split(',').map(s => s.trim()).filter(Boolean);
+  const base = APP_BASE_URL || `http://localhost:${PORT}`;
 
   return {
     PORT: Number(PORT),
